@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "eslint-config-rem": "^4.0.0",
-    "maid": "^0.0.2",
+    "maid": "^0.1.0",
     "xo": "^0.18.0"
   },
   "xo": {
