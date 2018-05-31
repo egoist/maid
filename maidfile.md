@@ -9,6 +9,7 @@ xo --fix
 ## test
 
 > Run unit tests
+>
 > Run `lint` before this
 
 ```bash
