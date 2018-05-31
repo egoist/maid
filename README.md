@@ -65,9 +65,14 @@ babel src -d lib
 ```js
 const webpack = require('webpack')
 
-const compiler = webpack(require('./webpack.config'))
-compiler.run((err, stats) => {
-  console.log(err || stats.toString('minimal'))
+// Async task should return a Promise
+module.exports = () => new Promise((resolve, reject) => {
+  const compiler = webpack(require('./webpack.config'))
+  compiler.run((err, stats) => {
+    if (err) return reject(err)
+    console.log(stats.toString('minimal'))
+    resolve()
+  })
 })
 ```
 ````
@@ -100,7 +105,7 @@ To run a task, you can directly run `maid <task_name>`
 [13:46:38] Finished 'build' after 363 ms...
 [13:46:38] Starting 'build:demo'...
 webpack compiled in 734ms.
-[13:46:38] Finished 'build:demo' after 363 ms...
+[13:46:38] Finished 'build:demo' after 734 ms...
 
 # to get minimal logs
 ❯ maid build --quiet
