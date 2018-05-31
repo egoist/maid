@@ -98,10 +98,14 @@ To run a task, you can directly run `maid <task_name>`
 [13:46:38] Starting 'build'...
 🎉  Successfully compiled 3 files with Babel.
 [13:46:38] Finished 'build' after 363 ms...
+[13:46:38] Starting 'build:demo'...
+webpack compiled in 734ms.
+[13:46:38] Finished 'build:demo' after 363 ms...
 
 # to get minimal logs
 ❯ maid build --quiet
 🎉  Successfully compiled 3 files with Babel.
+webpack compiled in 734ms.
 ```
 
 ### Run tasks before/after a task
