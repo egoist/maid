@@ -118,6 +118,21 @@ Hook syntax:
 - `afterAll`: Run after all tasks.
 - `beforeAll`: Run before all tasks.
 
+### Asynchronous task
+
+For task script that is written in JavaScript, you can export a function which returns Promise:
+
+````markdown
+## build
+
+```js
+module.exports = async () => {
+  const files = await readFiles('./')
+  await buildFiles(files)
+}
+```
+````
+
 ## Contributing
 
 1. Fork it!
