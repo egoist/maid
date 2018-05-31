@@ -13,8 +13,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "npm run lint && echo 'no tests!'",
-    "lint": "xo"
+    "test": "maid test"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
@@ -29,7 +28,8 @@
     "text-table": "^0.2.0"
   },
   "devDependencies": {
-    "eslint-config-rem": "^3.0.0",
+    "eslint-config-rem": "^4.0.0",
+    "maid": "^0.0.2",
     "xo": "^0.18.0"
   },
   "xo": {

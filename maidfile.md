@@ -9,9 +9,10 @@ xo --fix
 ## test
 
 > Run unit tests
+> Run `lint` before this
 
 ```bash
-jest --env node
+echo "no tests"
 ```
 
 ## cool
