@@ -23,3 +23,15 @@ echo "no tests"
 ```js
 console.log('cool')
 ```
+
+## say-what-you-input
+
+```bash
+echo $1
+```
+
+## toc
+
+```bash
+doctoc README.md
+```

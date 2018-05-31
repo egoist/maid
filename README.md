@@ -5,6 +5,27 @@
 
 > Markdown driven task runner.
 
+## Table of Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Install](#install)
+- [What is a maidfile?](#what-is-a-maidfile)
+  - [Run tasks before/after a task](#run-tasks-beforeafter-a-task)
+  - [Task hooks](#task-hooks)
+- [Advanced](#advanced)
+  - [Code block languages](#code-block-languages)
+    - [bash/sh](#bashsh)
+      - [Read command line arguments](#read-command-line-arguments)
+    - [js/javascript](#jsjavascript)
+      - [Asynchronous task](#asynchronous-task)
+- [Contributing](#contributing)
+- [Author](#author)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Install
 
 ```bash
@@ -118,7 +139,31 @@ Hook syntax:
 - `afterAll`: Run after all tasks.
 - `beforeAll`: Run before all tasks.
 
-### Asynchronous task
+## Advanced
+
+### Code block languages
+
+#### bash/sh
+
+##### Read command line arguments
+
+The CLI arguments are passed to executed script, so you can access it like this:
+
+````bash
+## log
+
+```bash
+echo $1
+```
+````
+
+Then run `maid log nice` and it will print `nice` in the console.
+
+#### js/javascript
+
+The JS script will also be evaluated.
+
+##### Asynchronous task
 
 For task script that is written in JavaScript, you can export a function which returns Promise:
 
