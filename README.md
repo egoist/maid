@@ -163,9 +163,17 @@ Then run `maid log nice` and it will print `nice` in the console.
 
 The JS script will also be evaluated.
 
+````markdown
+## log
+
+```js
+console.log(process.argv)
+```
+````
+
 ##### Asynchronous task
 
-For task script that is written in JavaScript, you can export a function which returns Promise:
+For asynchonous tasks, you can export a function which returns Promise:
 
 ````markdown
 ## build
