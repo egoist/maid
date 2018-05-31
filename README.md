@@ -72,7 +72,7 @@ compiler.run((err, stats) => {
 ```
 ````
 
-Each task is defined as a `heading 2` section, the value of heading 2 will be used as task name, the following blockquote (optional) will be used as task description, the following code block (required) will be used as task script. 
+Each task is defined as a `heading 2` section, the value of heading 2 will be used as task name, the following blockquote (optional) will be used as task description, the following code block (optional) will be used as task script. 
 
 Currently the code block language can be `sh` `bash` `js` `javascript`. 
 
