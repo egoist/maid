@@ -103,13 +103,13 @@ gh-pages -d dist
 ```
 ````
 
-Basically blockquotes like <code>Run `deploy` after this</code> is treated specicially, in this case it says _run the task `deploy` after this task is finished_.
+Basically blockquotes like <code>Run &#x60;deploy&#x60; after this</code> is treated specicially, in this case it says _run the task `deploy` after this task is finished_.
 
 The syntax is simple: `Run <taskNames> (before|after) this (in parallel?)` where each task name is surrounded by a pair of backticks: <code>`</code>.
 
 ### Task hooks
 
-Like npm scripts, when you run a command called `build`, when it's finised we will also run `postbuild` task when `build` is finished.
+Like npm scripts, when you run a command called `build`, when it's finised we will also run `postbuild` task.
 
 Hook syntax: 
 
