@@ -85,7 +85,7 @@ To run a task, you can directly run `maid <task_name>`
 
 ### Run tasks before/after a task
 
-You can even run tasks before or after a hook:
+You can even run tasks before or after a task:
 
 ````markdown
 ## build
