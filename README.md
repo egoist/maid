@@ -74,6 +74,12 @@ To run a task, you can directly run `maid <task_name>`
 
 ```bash
 ❯ maid build
+[13:46:38] Starting 'build'...
+🎉  Successfully compiled 3 files with Babel.
+[13:46:38] Finished 'build' after 363 ms...
+
+# to get minimal logs
+❯ maid build --quiet
 🎉  Successfully compiled 3 files with Babel.
 ```
 
