@@ -58,7 +58,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "maid lint",
+      "maid lint --fix",
       "git add"
     ]
   }
