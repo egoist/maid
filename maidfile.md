@@ -1,6 +1,6 @@
 ## lint
 
-> Run ESLint to check source files
+Run ESLint to check source files
 
 ```bash
 xo --fix
@@ -8,17 +8,15 @@ xo --fix
 
 ## test
 
-> Run unit tests
->
-> Run `lint` before this
+Run `lint` before this
 
 ```bash
-echo "no tests"
+ava
 ```
 
 ## cool
 
-> Just say cool
+Just say cool
 
 ```js
 console.log('cool')

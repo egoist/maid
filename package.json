@@ -28,6 +28,7 @@
     "text-table": "^0.2.0"
   },
   "devDependencies": {
+    "ava": "^0.25.0",
     "doctoc": "^1.3.1",
     "eslint-config-rem": "^4.0.0",
     "maid": "^0.1.0",
