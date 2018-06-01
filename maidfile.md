@@ -3,7 +3,7 @@
 It uses ESLint to check source files
 
 ```bash
-xo --fix
+eslint . "${@:1}"
 ```
 
 ## test

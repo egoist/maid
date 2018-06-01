@@ -30,15 +30,36 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "doctoc": "^1.3.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-config-rem": "^4.0.0",
+    "eslint-config-xo": "^0.22.2",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^1.0.0-rc.8",
+    "lint-staged": "^7.1.3",
     "maid": "^0.2.0",
-    "xo": "^0.18.0"
+    "prettier": "^1.13.3"
   },
-  "xo": {
-    "extends": "rem",
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "rem",
+      "plugin:prettier/recommended"
+    ],
     "rules": {
       "unicorn/filename-case": "off",
       "no-await-in-loop": "off"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "maid lint",
+      "git add"
+    ]
   }
 }
