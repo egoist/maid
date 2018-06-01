@@ -28,9 +28,25 @@
 
 ## Install
 
+You can install Maid globally:
+
 ```bash
+# For npm users
 npm i -g maid
+# For Yarn users
+yarn global add maid
 ```
+
+Or if you want to ensure that your teammates are using the same version as you, it's recommended to install Maid locally:
+
+```bash
+# For npm users
+npm i -D maid
+# For Yarn users
+yarn add maid --dev
+```
+
+<small>__PRO TIP__: you can use `npx` or `yarn` command to run any locally installed executable that is inside `node_modules/.bin/`, e.g. use `yarn maid` to run the locally installed maid command.</small>
 
 ## What is a maidfile?
 
