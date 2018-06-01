@@ -31,4 +31,10 @@ cli.option('quiet', {
   default: false
 })
 
+cli.option('path', {
+  desc: 'Path to markdown file',
+  type: 'string',
+  default: 'maidfile.md'
+})
+
 cli.parse()
