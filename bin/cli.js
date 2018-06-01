@@ -34,12 +34,14 @@ cli.option('quiet', {
 cli.option('path', {
   desc: 'Path to markdown file',
   type: 'string',
-  default: 'maidfile.md'
+  default: 'maidfile.md',
+  alias: 'p'
 })
 
 cli.option('section', {
   desc: 'Which `h2` section to look under',
-  type: 'string'
+  type: 'string',
+  alias: 's'
 })
 
 cli.parse()
