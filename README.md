@@ -133,7 +133,7 @@ webpack compiled in 734ms.
 
 ### Run tasks before/after a task
 
-You can even run tasks before or after a task:
+You can run tasks before or after a task:
 
 ````markdown
 ## build
@@ -151,7 +151,7 @@ gh-pages -d dist
 ```
 ````
 
-Basically blockquotes like <code>Run task &#x60;deploy&#x60; after this</code> is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
+Basically expressions like <code>Run task &#x60;deploy&#x60; after this</code> is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
 
 The syntax is simple: `Run tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
 
