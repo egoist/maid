@@ -163,7 +163,7 @@ Examples:
 
 ### Task hooks
 
-Like npm scripts, when you run a command called `build`, when it's finised we will also run `postbuild` task.
+Like npm scripts, when you run a command called `build`, when it's finished we will also run `postbuild` task.
 
 Hook syntax: 
 
