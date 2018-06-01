@@ -37,4 +37,9 @@ cli.option('path', {
   default: 'maidfile.md'
 })
 
+cli.option('section', {
+  desc: 'Which `h2` section to look under',
+  type: 'string'
+})
+
 cli.parse()
