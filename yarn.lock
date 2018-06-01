@@ -2622,9 +2622,9 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-maid@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/maid/-/maid-0.1.0.tgz#a1e6b6085f96dfbcb30e03df83e0711af94e9452"
+maid@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/maid/-/maid-0.2.0.tgz#8fcf45ab8d2cfd18c0ad53cf7310ae5e4256ed08"
   dependencies:
     cac "^5.0.10"
     chalk "^2.4.1"
