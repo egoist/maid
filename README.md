@@ -41,7 +41,7 @@ A maidfile is where you define tasks, in Markdown!
 ````markdown
 ## lint
 
-> Run ESLint to ensure code quality
+It uses ESLint to ensure code quality.
 
 ```bash
 eslint --fix
@@ -49,8 +49,10 @@ eslint --fix
 
 ## build
 
-> Build our main app
-> Run `build:demo` after this
+Build our main app
+
+<!-- Following line is a maid command for running task -->
+Run task `build:demo` after this
 
 ```bash
 # note that you can directly call binaries inside node_modules/.bin
@@ -60,7 +62,7 @@ babel src -d lib
 
 ## build:demo
 
-> Run a custom build script which is written in JS for the demo!
+You can use JavaScript to write to task script too!
 
 ```js
 const webpack = require('webpack')
@@ -77,7 +79,7 @@ module.exports = () => new Promise((resolve, reject) => {
 ```
 ````
 
-Each task is defined as a `heading 2` section, the value of heading 2 will be used as task name, the following blockquote (optional) will be used as task description, the following code block (optional) will be used as task script. 
+Each task is defined as a `heading 2` section, the value of heading 2 will be used as task name, the following paragraphs (optional) will be used as task description, the following code block (optional) will be used as task script. 
 
 Currently the code block language can be `sh` `bash` `js` `javascript`. 
 
@@ -86,14 +88,14 @@ Now run `maid help` to display the help for this maidfile:
 ```bash
 ❯ maid help
 
-  lint        Run ESLint to ensure code quality
+  lint        It uses ESLint to ensure code quality.
   build       Build our main app
-  build:demo  Run a custom build script which is written in JS for the demo!
+  build:demo  You can use JavaScript to write to task script too!
 
 ❯ maid help "build*"
 
   build       Build our main app
-  build:demo  Run a custom build script which is written in JS for the demo!
+  build:demo  You can use JavaScript to write to task script too!
 ```
 
 To run a task, you can directly run `maid <task_name>`
@@ -120,7 +122,7 @@ You can even run tasks before or after a task:
 ````markdown
 ## build
 
-> Run `deploy` after this
+Run task `deploy` after this
 
 ```bash
 webpack --config config/webpack.config.js
@@ -133,9 +135,15 @@ gh-pages -d dist
 ```
 ````
 
-Basically blockquotes like <code>Run &#x60;deploy&#x60; after this</code> is treated specially, in this case it says _run the task `deploy` after this task is finished_.
+Basically blockquotes like <code>Run task &#x60;deploy&#x60; after this</code> is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
 
-The syntax is simple: `Run <taskNames> (before|after) this (in parallel?)` where each task name is surrounded by a pair of backticks: <code>`</code>.
+The syntax is simple: `Run tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
+
+Examples:
+
+- Run task &#x60;build&#x60; after this.
+- Run tasks &#x60;build:app&#x60; &#x60;start:server&#x60; before this.
+- Run tasks &#x60;build:server&#x60; &#x60;build:client&#x60; before this in parallel.
 
 ### Task hooks
 

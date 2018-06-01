@@ -1,6 +1,6 @@
 ## lint
 
-Run ESLint to check source files
+It uses ESLint to check source files
 
 ```bash
 xo --fix
@@ -8,7 +8,7 @@ xo --fix
 
 ## test
 
-Run `lint` before this
+Run task `lint` before this
 
 ```bash
 ava

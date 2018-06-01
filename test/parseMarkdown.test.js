@@ -11,7 +11,7 @@ This script is used to say hey.
 
 But it's very complex so I'm writing some instructions.
 
-Run \`goodbye\` after this.
+Run task \`goodbye\` after this.
 
 \`\`\`js
 console.log('key')
