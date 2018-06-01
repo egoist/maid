@@ -182,7 +182,7 @@ Hook syntax:
 
 The CLI arguments are passed to executed script, so you can access it like this:
 
-````bash
+````markdown
 ## log
 
 ```bash
