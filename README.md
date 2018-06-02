@@ -21,6 +21,7 @@
       - [Read command line arguments](#read-command-line-arguments)
     - [js/javascript](#jsjavascript)
       - [Asynchronous task](#asynchronous-task)
+    - [py/python](#pypython)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -97,7 +98,7 @@ module.exports = () => new Promise((resolve, reject) => {
 
 Each task is defined as a `heading 2` section, the value of heading 2 will be used as task name, the following paragraphs (optional) will be used as task description, the following code block (optional) will be used as task script. 
 
-Currently the code block language can be `sh` `bash` `js` `javascript`. 
+Currently the code block languages are `sh` `bash` `js` `javascript` [and more](#code-block-languages)!. 
 
 Now run `maid help` to display the help for this maidfile:
 
@@ -182,7 +183,7 @@ Hook syntax:
 
 The CLI arguments are passed to executed script, so you can access it like this:
 
-````bash
+````markdown
 ## log
 
 ```bash
@@ -216,6 +217,16 @@ module.exports = async () => {
   const files = await readFiles('./')
   await buildFiles(files)
 }
+```
+````
+
+#### py/python
+
+````markdown
+## log
+
+```py
+print("cool")
 ```
 ````
 

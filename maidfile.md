@@ -18,8 +18,8 @@ ava
 
 Just say cool
 
-```js
-console.log('cool')
+```py
+print("cool")
 ```
 
 ## say-what-you-input
