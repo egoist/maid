@@ -157,15 +157,15 @@ gh-pages -d dist
 ```
 ````
 
-Basically expressions like <code>Run task &#x60;deploy&#x60; after this</code> is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
+Basically expressions like ``Run task `deploy` after this`` is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
 
 The syntax is simple: `Run tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
 
 Examples:
 
-- `Run task &#x60;build&#x60; after this.`
-- `Run tasks &#x60;build:app&#x60; &#x60;start:server&#x60; before this.`
-- `Run tasks &#x60;build:server&#x60; &#x60;build:client&#x60; before this in parallel.`
+- ``Run task `build` after this.``
+- ``Run tasks `build:app` `start:server` before this.``
+- ``Run tasks `build:server` `build:client` before this in parallel.``
 
 ### Task hooks
 
