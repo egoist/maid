@@ -29,3 +29,29 @@ echo goodbye
 
   t.snapshot(res)
 })
+
+test('selected section', t => {
+  const section = `
+## hey
+
+This script is used to say hey.
+
+### key
+
+\`\`\`js
+console.log('key')
+\`\`\`
+
+### goodbye
+
+hehehe
+
+\`\`\`sh
+echo goodbye
+\`\`\`
+`
+
+  const res = parseMarkdown(section, 'hey')
+
+  t.snapshot(res)
+})
