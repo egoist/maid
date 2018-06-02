@@ -19,7 +19,7 @@ ava
 Just say cool
 
 ```py
-print "cool"
+print("cool")
 ```
 
 ## say-what-you-input
