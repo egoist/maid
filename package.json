@@ -60,6 +60,10 @@
     "*.js": [
       "node bin/cli lint --fix",
       "git add"
+    ],
+    "README.md": [
+      "node bin/cli toc",
+      "git add"
     ]
   }
 }
