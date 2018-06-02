@@ -51,7 +51,36 @@ echo goodbye
 \`\`\`
 `
 
-  const res = parseMarkdown(section, 'hey')
+  const res = parseMarkdown(section, { section: 'hey' })
+
+  t.snapshot(res)
+})
+
+test('use readme', t => {
+  const res = parseMarkdown(
+    `
+# my project
+
+cool
+
+## usage
+
+lorem
+
+## build scripts
+
+<!-- maid-tasks -->
+
+### dev
+
+some dev script
+
+## license
+
+MIT
+  `,
+    { filepath: 'README.md' }
+  )
 
   t.snapshot(res)
 })
