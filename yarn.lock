@@ -3537,7 +3537,7 @@ ret@~0.1.10:
 
 rexrex@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.npmjs.intuit.net/r/rexrex/_attachments/rexrex-1.2.0.tgz#bc5af894d555f0f45a6216d1c0ec3ecf6438667b"
+  resolved "https://registry.yarnpkg.com/rexrex/-/rexrex-1.2.0.tgz#bc5af894d555f0f45a6216d1c0ec3ecf6438667b"
 
 rimraf@^2.2.8, rimraf@^2.6.1:
   version "2.6.2"
