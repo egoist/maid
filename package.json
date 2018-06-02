@@ -1,6 +1,6 @@
 {
   "name": "maid",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Markdown driven task runner.",
   "repository": {
     "url": "egoist/maid",
