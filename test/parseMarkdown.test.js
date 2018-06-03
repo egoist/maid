@@ -1,5 +1,6 @@
 const test = require('ava')
 const parseMarkdown = require('../lib/parseMarkdown')
+const { isCommand, parseCommand } = parseMarkdown
 
 test('simple', t => {
   const res = parseMarkdown(`
@@ -28,4 +29,53 @@ echo goodbye
   `)
 
   t.snapshot(res)
+})
+
+test('isCommand', t => {
+  t.false(isCommand('Run task'))
+  t.true(isCommand('Run task `blah`'))
+  t.true(isCommand('run Task `blah`'))
+  t.true(isCommand('Runs task `blah`'))
+  t.true(isCommand('Run tasks `blah` and `blah`'))
+  t.true(isCommand('Runs tasks `blah` and `blah`'))
+  t.true(isCommand('Run tasks `blah` and `blah` in parallel'))
+  t.true(isCommand('Run task `blah` after this in parallel'))
+})
+
+test('parseCommand', t => {
+  t.deepEqual(parseCommand('run task `blah`'), {
+    taskNames: ['blah'],
+    when: 'before',
+    inParallel: false
+  })
+
+  t.deepEqual(
+    parseCommand('Runs task `blah` in parallel after this task has completed'),
+    {
+      taskNames: ['blah'],
+      when: 'after',
+      inParallel: true
+    }
+  )
+
+  t.deepEqual(parseCommand('run task `blah` in parallel'), {
+    taskNames: ['blah'],
+    when: 'before',
+    inParallel: true
+  })
+
+  t.deepEqual(parseCommand('run tasks `blah`, `bleh`, and `blu`'), {
+    taskNames: ['blah', 'bleh', 'blu'],
+    when: 'before',
+    inParallel: false
+  })
+
+  t.deepEqual(
+    parseCommand('run tasks `blah`, `bleh`, and `blu` after this in parallel'),
+    {
+      taskNames: ['blah', 'bleh', 'blu'],
+      when: 'after',
+      inParallel: true
+    }
+  )
 })
