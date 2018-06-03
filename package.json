@@ -1,6 +1,6 @@
 {
   "name": "maid",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Markdown driven task runner.",
   "repository": {
     "url": "egoist/maid",
@@ -13,7 +13,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "node bin/cli test"
+    "test": "node bin/cli lint && node bin/cli test"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
@@ -22,6 +22,7 @@
     "chalk": "^2.4.1",
     "cross-spawn": "^6.0.5",
     "fancy-log": "^1.3.2",
+    "joycon": "^1.0.4",
     "markdown-it": "^8.4.1",
     "micromatch": "^3.1.10",
     "require-from-string": "^2.0.2",
@@ -58,6 +59,10 @@
   "lint-staged": {
     "*.js": [
       "node bin/cli lint --fix",
+      "git add"
+    ],
+    "README.md": [
+      "node bin/cli toc",
       "git add"
     ]
   }

@@ -31,17 +31,6 @@ echo goodbye
   t.snapshot(res)
 })
 
-test('isCommand', t => {
-  t.false(isCommand('Run task'))
-  t.true(isCommand('Run task `blah`'))
-  t.true(isCommand('run Task `blah`'))
-  t.true(isCommand('Runs task `blah`'))
-  t.true(isCommand('Run tasks `blah` and `blah`'))
-  t.true(isCommand('Runs tasks `blah` and `blah`'))
-  t.true(isCommand('Run tasks `blah` and `blah` in parallel'))
-  t.true(isCommand('Run task `blah` after this in parallel'))
-})
-
 test('parseCommand', t => {
   t.deepEqual(parseCommand('run task `blah`'), {
     taskNames: ['blah'],
@@ -78,4 +67,70 @@ test('parseCommand', t => {
       inParallel: true
     }
   )
+})
+
+test('selected section', t => {
+  const section = `
+## hey
+
+This script is used to say hey.
+
+### key
+
+\`\`\`js
+console.log('key')
+\`\`\`
+
+### goodbye
+
+hehehe
+
+\`\`\`sh
+echo goodbye
+\`\`\`
+`
+
+  const res = parseMarkdown(section, { section: 'hey' })
+
+  t.snapshot(res)
+})
+
+test('use readme', t => {
+  const res = parseMarkdown(
+    `
+# my project
+
+cool
+
+## usage
+
+lorem
+
+## build scripts
+
+<!-- maid-tasks -->
+
+### dev
+
+some dev script
+
+## license
+
+MIT
+  `,
+    { filepath: 'README.md' }
+  )
+
+  t.snapshot(res)
+})
+
+test('isCommand', t => {
+  t.false(isCommand('Run task'))
+  t.true(isCommand('Run task `blah`'))
+  t.true(isCommand('run Task `blah`'))
+  t.true(isCommand('Runs task `blah`'))
+  t.true(isCommand('Run tasks `blah` and `blah`'))
+  t.true(isCommand('Runs tasks `blah` and `blah`'))
+  t.true(isCommand('Run tasks `blah` and `blah` in parallel'))
+  t.true(isCommand('Run task `blah` after this in parallel'))
 })

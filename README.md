@@ -22,6 +22,11 @@
     - [js/javascript](#jsjavascript)
       - [Asynchronous task](#asynchronous-task)
     - [py/python](#pypython)
+  - [Use a custom maidfile](#use-a-custom-maidfile)
+- [Development](#development)
+  - [lint](#lint)
+  - [test](#test)
+  - [toc](#toc)
 - [Contributing](#contributing)
 - [Author](#author)
 
@@ -96,7 +101,7 @@ module.exports = () => new Promise((resolve, reject) => {
 ```
 ````
 
-Each task is defined as a `heading 2` section, the value of heading 2 will be used as task name, the following paragraphs (optional) will be used as task description, the following code block (optional) will be used as task script. 
+Each task is defined using `h2` header and its child contents, the value of `h2` header will be used as task name, its following paragraphs (optional) will be used as task description, and following code block (optional) will be used as task script. 
 
 Currently the code block languages are `sh` `bash` `js` `javascript` [and more](#code-block-languages)!. 
 
@@ -152,15 +157,15 @@ gh-pages -d dist
 ```
 ````
 
-Basically expressions like <code>Run task &#x60;deploy&#x60; after this</code> is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
+Basically expressions like ``Run task `deploy` after this`` is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
 
 The syntax is simple: `Run tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
 
 Examples:
 
-- Run task &#x60;build&#x60; after this.
-- Run tasks &#x60;build:app&#x60; &#x60;start:server&#x60; before this.
-- Run tasks &#x60;build:server&#x60; &#x60;build:client&#x60; before this in parallel.
+- ``Run task `build` after this.``
+- ``Run tasks `build:app` `start:server` before this.``
+- ``Run tasks `build:server` `build:client` before this in parallel.``
 
 ### Task hooks
 
@@ -229,6 +234,66 @@ module.exports = async () => {
 print("cool")
 ```
 ````
+
+### Use a custom maidfile
+
+By default, Maid would use `maidfile.md` or `README.md` (case-insensitive) in current working directory, when you're using `README.md` you need to manually specify the section of the markdown you wanna use as Maid tasks like below:
+
+````markdown
+## My Project
+
+## How to use
+
+Let me explain..
+
+## Development
+
+<!-- maid-tasks -->
+
+### test
+
+```bash
+# some test scripts...
+```
+````
+
+Unlike a `maidfile.md` which uses all `h2` headers as tasks, in `README.md` only `h3` headers under the specified `h2` header will be used as tasks. You can add a `<!-- maid-tasks -->` comment right below the desired `h2` header.
+
+Alternatively, if you're not using `maidfile.md`, you can also use `--section h2_header` and `--path foo.md` flags to customize it.
+
+## Development
+
+<!-- maid-tasks -->
+
+Maid's own development scripts are powered by itself, run `maid help` or `node bin/cli help` in this project to get more.
+
+### lint
+
+Run ESLint to ensure code quality and code style (via Prettier).
+
+```bash
+yarn eslint . "${@:1}"
+```
+
+If you want to automatically fix lint errors, try adding `--fix` plugin to the command you run, e.g. `maid lint --fix`
+
+### test
+
+Use [AVA](https://github.com/avajs/ava) to run unit tests.
+
+```bash
+yarn ava "${@:1}"
+```
+
+Similar to the `lint` task, you can append any flags for `ava` command directly when you run the maid command.
+
+### toc
+
+Generate a __table of contents__ section in the README.md file.
+
+```bash
+yarn doctoc README.md
+```
 
 ## Contributing
 
