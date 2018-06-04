@@ -22,6 +22,7 @@
       - [Asynchronous task](#asynchronous-task)
     - [py/python](#pypython)
   - [Use a custom maidfile](#use-a-custom-maidfile)
+  - [Synchronizing tasks with package.json scripts](#synchronizing-tasks-with-packagejson-scripts)
 - [Development](#development)
   - [lint](#lint)
   - [test](#test)
@@ -261,6 +262,29 @@ Let me explain..
 Unlike a `maidfile.md` which uses all `h2` headers as tasks, in `README.md` only `h3` headers under the specified `h2` header will be used as tasks. You can add a `<!-- maid-tasks -->` comment right below the desired `h2` header.
 
 Alternatively, if you're not using `maidfile.md`, you can also use `--section h2_header` and `--path foo.md` flags to customize it.
+
+### Synchronizing tasks with package.json scripts
+
+You're team may currently use `yarn` or `npm run` to execute tasks. In order to reduce workflow churn maid provides a way of automatically updating the scripts section of your package.json with the relavent maid tasks.
+
+```bash
+maid update-scripts
+```
+
+It's recommended to use this technique along side [lint-staged](https://github.com/okonet/lint-staged) and [husky](https://github.com/typicode/husky) to automatically update your package.json on before commiting changes to your maid tasks.
+
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "README.md": ["maid update-scripts --git-add -p", "git add"]
+  }
+}
+```
 
 ## Development
 
