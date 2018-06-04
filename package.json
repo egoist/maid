@@ -13,9 +13,9 @@
     "lib"
   ],
   "scripts": {
-    "lint": "node bin/cli -p /Users/justinbennett/Git/oss/maid/README.md lint",
-    "test": "node bin/cli -p /Users/justinbennett/Git/oss/maid/README.md test",
-    "toc": "node bin/cli -p /Users/justinbennett/Git/oss/maid/README.md toc"
+    "lint": "node bin/cli -p README.md lint",
+    "test": "node bin/cli -p README.md test",
+    "toc": "node bin/cli -p README.md toc"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
