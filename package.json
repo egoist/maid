@@ -13,9 +13,9 @@
     "lib"
   ],
   "scripts": {
-    "lint": "node bin/cli.js lint",
-    "test": "node bin/cli.js test",
-    "toc": "node bin/cli.js toc"
+    "lint": "node bin/cli.js -p README.md lint",
+    "test": "node bin/cli.js -p README.md test",
+    "toc": "node bin/cli.js -p README.md toc"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
@@ -65,6 +65,7 @@
     ],
     "README.md": [
       "node bin/cli toc",
+      "node bin/cli update-scripts --git-add -p",
       "git add"
     ]
   }

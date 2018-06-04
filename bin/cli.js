@@ -1,18 +1,8 @@
 #!/usr/bin/env node
 const cli = require('cac')()
 const chalk = require('chalk')
-const MaidError = require('../lib/MaidError')
 
 cli.command('*', 'Run a task in current working directory', (input, flags) => {
-  if (flags.updateScripts && input[0]) {
-    throw new MaidError('Cannot run task and update scripts')
-  } else if (flags.updateScripts) {
-    const runner = require('..')(flags)
-    const updateScripts = require('../lib/updateScripts')
-    updateScripts(runner)
-    return
-  }
-
   const taskName = input[0]
   if (!taskName) {
     return cli.showHelp()
@@ -20,6 +10,22 @@ cli.command('*', 'Run a task in current working directory', (input, flags) => {
   const runner = require('..')(flags)
   return runner.runFile(taskName)
 })
+
+cli
+  .command(
+    'update-scripts',
+    'Write maid tasks to package.json scripts',
+    (input, flags) => {
+      const runner = require('..')(flags)
+      const updateScripts = require('../lib/updateScripts')
+      updateScripts(runner, flags)
+    }
+  )
+  .option('git-add', {
+    desc: 'Runs git-add on the changed package.json file',
+    type: 'boolean',
+    default: false
+  })
 
 cli.command('help', 'Display task description', (input, flags) => {
   const runner = require('..')(flags)
@@ -52,11 +58,6 @@ cli.option('section', {
   desc: 'Which `h2` section to look under',
   type: 'string',
   alias: 's'
-})
-
-cli.option('update-scripts', {
-  desc: 'Write maid tasks to package.json scripts',
-  type: 'boolean'
 })
 
 cli.parse()
