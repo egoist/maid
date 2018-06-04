@@ -237,7 +237,7 @@ print("cool")
 
 ### Use a custom maidfile
 
-By default, Maid would use `maidfile.md` or `README.md` (case-insensitive) in current working directory, when you're using `README.md` you need to manually specify the section of the markdown you wanna use as Maid tasks like below:
+By default, Maid would use `maidfile.md`, `CONTRIBUTING.md` or `README.md` (case-insensitive) in current working directory, when you're using `README.md` you need to manually specify the section of the markdown you wanna use as Maid tasks like below:
 
 ````markdown
 ## My Project
