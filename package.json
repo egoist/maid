@@ -13,7 +13,9 @@
     "lib"
   ],
   "scripts": {
-    "test": "node bin/cli lint && node bin/cli test"
+    "lint": "node bin/cli.js lint",
+    "test": "node bin/cli.js test",
+    "toc": "node bin/cli.js toc"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",

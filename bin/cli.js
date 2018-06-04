@@ -1,8 +1,18 @@
 #!/usr/bin/env node
 const cli = require('cac')()
 const chalk = require('chalk')
+const MaidError = require('../lib/MaidError')
 
 cli.command('*', 'Run a task in current working directory', (input, flags) => {
+  if (flags.updateScripts && input[0]) {
+    throw new MaidError('Cannot run task and update scripts')
+  } else if (flags.updateScripts) {
+    const runner = require('..')(flags)
+    const updateScripts = require('../lib/updateScripts')
+    updateScripts(runner)
+    return
+  }
+
   const taskName = input[0]
   if (!taskName) {
     return cli.showHelp()
@@ -46,8 +56,7 @@ cli.option('section', {
 
 cli.option('update-scripts', {
   desc: 'Write maid tasks to package.json scripts',
-  type: 'boolean',
-  default: false
+  type: 'boolean'
 })
 
 cli.parse()
