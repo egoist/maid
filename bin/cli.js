@@ -44,4 +44,10 @@ cli.option('section', {
   alias: 's'
 })
 
+cli.option('update-scripts', {
+  desc: 'Write maid tasks to package.json scripts',
+  type: 'boolean',
+  default: false
+})
+
 cli.parse()
