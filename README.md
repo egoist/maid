@@ -281,14 +281,12 @@ It's recommended to use this technique along side [lint-staged](https://github.c
     }
   },
   "lint-staged": {
-    "README.md": ["maid update-scripts --git-add --noop", "git add"]
+    "README.md": ["maid update-scripts --git-add", "git add"]
   }
 }
 ```
 
 **Note:** The `--git-add` flag will automatically stage the `package.json`. If you have other changes to the package.json when that happens you could end up commiting those changes without intending to.
-
-The `--noop` flag ignores the next input. It's useful if you're using the default maidfile path configuration with lint-staged.
 
 `--no-write` allows you to test the command without actually updating the package.json. Useful for both debugging and checking to ensure there are no command conflicts
 

@@ -26,10 +26,6 @@ cli
     type: 'boolean',
     default: false
   })
-  .option('noop', {
-    type: 'string',
-    desc: 'Ignore the next option (useful for lint-staged)'
-  })
   .option('write', {
     type: 'boolean',
     default: true,
