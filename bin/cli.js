@@ -26,6 +26,10 @@ cli
     type: 'boolean',
     default: false
   })
+  .option('noop', {
+    type: 'string',
+    desc: 'Ignore the next option (useful for lint-staged)'
+  })
 
 cli.command('help', 'Display task description', (input, flags) => {
   const runner = require('..')(flags)
