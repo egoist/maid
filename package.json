@@ -63,6 +63,9 @@
       "node bin/cli lint --fix",
       "git add"
     ],
+    "package.json": [
+      "node bin/cli update-scripts --no-write --noop"
+    ],
     "README.md": [
       "node bin/cli toc",
       "node bin/cli update-scripts --git-add --noop",

@@ -30,6 +30,11 @@ cli
     type: 'string',
     desc: 'Ignore the next option (useful for lint-staged)'
   })
+  .option('write', {
+    type: 'boolean',
+    default: true,
+    desc: 'Write output to the package.json'
+  })
 
 cli.command('help', 'Display task description', (input, flags) => {
   const runner = require('..')(flags)

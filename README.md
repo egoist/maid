@@ -271,7 +271,7 @@ You're team may currently use `yarn` or `npm run` to execute tasks. In order to 
 maid update-scripts
 ```
 
-It's recommended to use this technique along side [lint-staged](https://github.com/okonet/lint-staged) and [husky](https://github.com/typicode/husky) to automatically update your package.json on before commiting changes to your maid tasks.
+It's recommended to use this technique along side [lint-staged](https://github.com/okonet/lint-staged) and [husky](https://github.com/typicode/husky) to automatically update your package.json in a precommit hook.
 
 ```json
 {
@@ -288,7 +288,9 @@ It's recommended to use this technique along side [lint-staged](https://github.c
 
 **Note:** The `--git-add` flag will automatically stage the `package.json`. If you have other changes to the package.json when that happens you could end up commiting those changes without intending to.
 
-The `--noop` flag ignores the next input. It's useful if you're using the default maidfile path configuration.
+The `--noop` flag ignores the next input. It's useful if you're using the default maidfile path configuration with lint-staged.
+
+`--no-write` allows you to test the command without actually updating the package.json. Useful for both debugging and checking to ensure there are no command conflicts
 
 ## Development
 
