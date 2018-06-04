@@ -286,6 +286,8 @@ It's recommended to use this technique along side [lint-staged](https://github.c
 }
 ```
 
+**Note:** The `--git-add` flag will automatically stage the `package.json`. If you have other changes to the package.json when that happens you could end up commiting those changes without intending to.
+
 ## Development
 
 <!-- maid-tasks -->
