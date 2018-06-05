@@ -20,6 +20,7 @@
   "dependencies": {
     "cac": "^5.0.10",
     "chalk": "^2.4.1",
+    "chokidar": "^2.0.3",
     "cross-spawn": "^6.0.5",
     "fancy-log": "^1.3.2",
     "joycon": "^1.0.4",
