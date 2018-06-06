@@ -159,13 +159,17 @@ gh-pages -d dist
 ```
 ````
 
-Basically expressions like `` Run task `deploy` after this `` is treated specially, in this case if you run `maid build`, it will also run `deploy` task when `build` task is finished.
+Expressions that start with `Run(s)? task(s)?` are treated specially. In this case if you run `maid build` it will also run the `deploy` task after `build` has finished.
 
-The syntax is simple: `Run tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
+The syntax is simple: `Runs? tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
+
+By default a task will run before the current task. So `` Run task `build` `` would run `build` before the task it was described in. The presence of `after` anywhere in the setence (after `Run task`) will cause it to be ran after. Commands run synchronously by default. The presence of `in parallel` in the scentence will cause it to be run in parallel.
 
 Examples:
 
+- `` Run task `build`. ``
 - `` Run task `build` after this. ``
+- `` Run tasks `clean`, `build`, and `lint`. ``
 - `` Run tasks `build:app` `start:server` before this. ``
 - `` Run tasks `build:server` `build:client` before this in parallel. ``
 

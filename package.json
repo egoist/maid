@@ -8,7 +8,10 @@
   },
   "main": "lib/index.js",
   "bin": "bin/cli.js",
-  "files": ["bin", "lib"],
+  "files": [
+    "bin",
+    "lib"
+  ],
   "scripts": {
     "lint": "node bin/cli lint",
     "test": "node bin/cli test",
@@ -40,7 +43,11 @@
     "prettier": "^1.13.3"
   },
   "eslintConfig": {
-    "extends": ["xo", "rem", "plugin:prettier/recommended"],
+    "extends": [
+      "xo",
+      "rem",
+      "plugin:prettier/recommended"
+    ],
     "rules": {
       "unicorn/filename-case": "off",
       "no-await-in-loop": "off"
@@ -52,8 +59,13 @@
     }
   },
   "lint-staged": {
-    "*.js": ["node bin/cli lint --fix", "git add"],
-    "package.json": ["node bin/cli update-scripts --no-write"],
+    "*.js": [
+      "node bin/cli lint --fix",
+      "git add"
+    ],
+    "package.json": [
+      "node bin/cli update-scripts --no-write"
+    ],
     "README.md": [
       "node bin/cli toc",
       "node bin/cli update-scripts --git-add",
