@@ -31,11 +31,10 @@ cli.option('quiet', {
   default: false
 })
 
-cli.option('path', {
+cli.option('maidfile', {
   desc: 'Path to markdown file',
   type: 'string',
-  default: 'maidfile.md',
-  alias: 'p'
+  default: 'maidfile.md'
 })
 
 cli.option('section', {
