@@ -22,6 +22,7 @@
     "cac": "^5.0.10",
     "chalk": "^2.4.1",
     "cross-spawn": "^6.0.5",
+    "execa": "^0.10.0",
     "fancy-log": "^1.3.2",
     "joycon": "^1.0.4",
     "markdown-it": "^8.4.1",
