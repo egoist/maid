@@ -13,7 +13,7 @@
     "lib"
   ],
   "scripts": {
-    "maid": "node bin/cli --maidfile README.md",
+    "maid": "node bin/cli --maidfile=README.md",
     "test": "yarn maid lint && yarn maid test"
   },
   "author": "egoist <0x142857@gmail.com>",
