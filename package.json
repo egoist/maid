@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "maid": "node bin/cli",
-    "test": "yarn maid lint && yarn maid test"
+    "test": "yarn maid lint && yarn maid test",
+    "ava": "ava test/parseMarkdown.test.js"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
@@ -52,6 +53,14 @@
       "unicorn/filename-case": "off",
       "no-await-in-loop": "off"
     }
+  },
+  "ava": {
+    "cache": false,
+    "failFast": false,
+    "failWithoutAssertions": false,
+    "require": [
+			"./lib/parseMarkdown"
+		]
   },
   "husky": {
     "hooks": {
