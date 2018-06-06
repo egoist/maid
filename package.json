@@ -13,7 +13,8 @@
     "lib"
   ],
   "scripts": {
-    "test": "node bin/cli lint test"
+    "maid": "node bin/cli",
+    "test": "yarn maid lint test"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
@@ -59,11 +60,11 @@
   },
   "lint-staged": {
     "*.js": [
-      "node bin/cli lint --fix",
+      "yarn maid lint --fix",
       "git add"
     ],
     "README.md": [
-      "node bin/cli toc",
+      "yarn maid toc",
       "git add"
     ]
   }
