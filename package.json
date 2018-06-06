@@ -13,7 +13,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "node bin/cli lint && node bin/cli test"
+    "test": "node bin/cli lint test"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "joycon": "^1.0.4",
     "markdown-it": "^8.4.1",
     "micromatch": "^3.1.10",
+    "p-map-series": "^1.0.0",
     "require-from-string": "^2.0.2",
     "rexrex": "^1.2.0"
   },

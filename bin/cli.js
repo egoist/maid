@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 const cli = require('cac')()
 const chalk = require('chalk')
+const pMapSeries = require('p-map-series')
 
-cli.command('*', 'Run a task in current working directory', (input, flags) => {
+cli.command('*', 'Run a tasks in current working directory', (input, flags) => {
   const taskName = input[0]
   if (!taskName) {
     return cli.showHelp()
   }
   const runner = require('..')(flags)
-  return runner.runFile(taskName)
+  return pMapSeries(input, name => runner.runFile(name))
 })
 
 cli.command('help', 'Display task description', (input, flags) => {
