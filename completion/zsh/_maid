@@ -1,0 +1,17 @@
+#compdef maid
+
+# list of task list
+function __list() {
+    local -a scripts
+
+    scripts=($(maid list))
+    _describe 'script' scripts
+}
+
+_arguments \
+    '(--quiet)'--quiet \
+    '(-p --path)'{-p,--path}': :_files' \
+    '(-v --version)'{-v,--version} \
+    '(-s --section)'{-s,--section} \
+    '(- *)'{-h,--help} \
+    '*: :__list' \
