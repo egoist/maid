@@ -22,6 +22,7 @@
       - [Asynchronous task](#asynchronous-task)
     - [py/python](#pypython)
   - [Use a custom maidfile](#use-a-custom-maidfile)
+  - [ZSH completion](#zsh-completion)
 - [Development](#development)
   - [lint](#lint)
   - [test](#test)
@@ -265,6 +266,14 @@ Let me explain..
 Unlike a `maidfile.md` which uses all `h2` headers as tasks, in `README.md` only `h3` headers under the specified `h2` header will be used as tasks. You can add a `<!-- maid-tasks -->` comment right below the desired `h2` header.
 
 Alternatively, if you're not using `maidfile.md`, you can also use `--section h2_header` and `--path foo.md` flags to customize it.
+
+### ZSH completion
+
+Add `FPATH` like following to `.zshrc`:
+
+```
+export FPATH=$(npm root -g)/maid/completion/zsh:$FPATH
+```
 
 ## Development
 
