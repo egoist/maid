@@ -162,7 +162,7 @@ Expressions that start with `Run(s)? task(s)?` are treated specially. In this ca
 
 The syntax is simple: `Runs? tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
 
-By default a task will run before the current task. So `` Run task `build` `` would run `build` before the task it was described in. The presence of `after` anywhere in the setence (after `Run task`) will cause it to be ran after. Commands run synchronously by default. The presence of `in parallel` in the scentence will cause it to be run in parallel.
+By default a task will run before the current task. So `` Run task `build` `` would run `build` before the task it was described in. The presence of `after` anywhere in the sentence (after `Run task`) will cause it to be ran after. Commands run synchronously by default. The presence of `in parallel` in the sentence will cause it to be run in parallel.
 
 Examples:
 
