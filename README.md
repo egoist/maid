@@ -22,6 +22,7 @@
       - [Asynchronous task](#asynchronous-task)
     - [py/python](#pypython)
   - [Use a custom maidfile](#use-a-custom-maidfile)
+  - [ZSH completion](#zsh-completion)
 - [Development](#development)
   - [lint](#lint)
   - [test](#test)
@@ -162,7 +163,7 @@ Expressions that start with `Run(s)? task(s)?` are treated specially. In this ca
 
 The syntax is simple: `Runs? tasks? <taskNames> (before|after) this (in parallel)?` where each task name is surrounded by a pair of backticks: <code>`</code>.
 
-By default a task will run before the current task. So `` Run task `build` `` would run `build` before the task it was described in. The presence of `after` anywhere in the setence (after `Run task`) will cause it to be ran after. Commands run synchronously by default. The presence of `in parallel` in the scentence will cause it to be run in parallel.
+By default a task will run before the current task. So `` Run task `build` `` would run `build` before the task it was described in. The presence of `after` anywhere in the sentence (after `Run task`) will cause it to be ran after. Commands run synchronously by default. The presence of `in parallel` in the sentence will cause it to be run in parallel.
 
 Examples:
 
@@ -242,7 +243,7 @@ print("cool")
 
 ### Use a custom maidfile
 
-By default, Maid would use `maidfile.md` or `README.md` (case-insensitive) in current working directory, when you're using `README.md` you need to manually specify the section of the markdown you wanna use as Maid tasks like below:
+By default, Maid would use `maidfile.md`, `CONTRIBUTING.md` or `README.md` (case-insensitive) in current working directory, when you're using `README.md` you need to manually specify the section of the markdown you wanna use as Maid tasks like below:
 
 ````markdown
 ## My Project
@@ -265,6 +266,14 @@ Let me explain..
 Unlike a `maidfile.md` which uses all `h2` headers as tasks, in `README.md` only `h3` headers under the specified `h2` header will be used as tasks. You can add a `<!-- maid-tasks -->` comment right below the desired `h2` header.
 
 Alternatively, if you're not using `maidfile.md`, you can also use `--section h2_header` and `--path foo.md` flags to customize it.
+
+### ZSH completion
+
+Add `FPATH` like following to `.zshrc`:
+
+```
+export FPATH=$(npm root -g)/maid/completion/zsh:$FPATH
+```
 
 ## Development
 

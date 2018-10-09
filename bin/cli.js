@@ -16,6 +16,11 @@ cli.command('help', 'Display task description', (input, flags) => {
   return runner.getHelp(input)
 })
 
+cli.command('list', 'Display task list', (input, flags) => {
+  const runner = require('..')(flags)
+  return runner.getList()
+})
+
 cli.on('error', err => {
   if (err.name === 'MaidError') {
     require('../lib/logger').error(chalk.red(err.message))
