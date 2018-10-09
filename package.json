@@ -13,7 +13,7 @@
     "lib"
   ],
   "scripts": {
-    "maid": "node bin/cli",
+    "maid": "node bin/cli --maidfile=README.md",
     "test": "yarn maid lint && yarn maid test"
   },
   "author": "egoist <0x142857@gmail.com>",
@@ -23,6 +23,7 @@
     "chalk": "^2.4.1",
     "cross-spawn": "^6.0.5",
     "fancy-log": "^1.3.2",
+    "find-file-up": "^2.0.1",
     "joycon": "^1.0.4",
     "markdown-it": "^8.4.1",
     "micromatch": "^3.1.10",
