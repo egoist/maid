@@ -16,6 +16,11 @@ cli.command('help', 'Display task description', (input, flags) => {
   return runner.getHelp(input)
 })
 
+cli.command('run', 'Choose which task to run from a list', (input, flags) => {
+  const runner = require('..')(flags)
+  return runner.runList(input)
+})
+
 cli.command('list', 'Display task list', (input, flags) => {
   const runner = require('..')(flags)
   return runner.getList()
